@@ -1,0 +1,4 @@
+// Copy this file to config.js and set your Cloudflare R2 public bucket URL.
+window.CONFIG = {
+    R2_PUBLIC_URL: "https://your-r2-public-bucket-url.r2.dev"
+};

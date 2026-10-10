@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BlogBoard - AI & ML Insights</title>
+  <meta name="description"
+    content="A professional blog exploring Machine Learning, Deep Learning, NLP, Computer Vision, Generative AI, and the latest AI News." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&family=Playfair+Display:wght@700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WBM01EXMS8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WBM01EXMS8');
+  </script>
+  </head>
+
+<body>
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid-overlay"></div>
+    <canvas id="particleCanvas"></canvas>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">Blog<span class="logo-accent">Board</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="category.html#cat=ml" class="nav-link">ML</a></li>
+        <li><a href="category.html#cat=dl" class="nav-link">DL</a></li>
+        <li><a href="category.html#cat=statistics" class="nav-link">Stats</a></li>
+        <li><a href="category.html#cat=nlp" class="nav-link">NLP</a></li>
+        <li><a href="category.html#cat=cv" class="nav-link">CV</a></li>
+        <li><a href="category.html#cat=genai" class="nav-link">Gen AI</a></li>
+        <li><a href="category.html#cat=ainews" class="nav-link">AI News</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>Actively Publishing</span>
+      </div>
+      <h1 class="hero-title">
+        Explore the Frontier of
+        <span class="gradient-text">Artificial Intelligence</span>
+      </h1>
+      <p class="hero-sub">
+        In-depth articles on Machine Learning, Deep Learning, NLP, Computer Vision,
+        Generative AI, and the latest breakthroughs shaping the future.
+      </p>
+      <div class="hero-cta">
+        <a href="#categories" class="btn-ghost">Browse Topics</a>
+        <a href="category.html#cat=ainews" class="btn-primary">Latest AI News →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat" id="totalBlogs">
+          <span class="stat-num" data-target="0">0</span>
+          <span class="stat-label">Articles</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">7</span>
+          <span class="stat-label">Topics</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">∞</span>
+          <span class="stat-label">Knowledge</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="neural-net" id="neuralNet"></div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section" id="categories">
+    <div class="section-header">
+      <span class="section-tag">Domains</span>
+      <h2 class="section-title">Choose Your Field</h2>
+      <p class="section-sub">Select a domain to explore curated articles crafted for depth and clarity.</p>
+    </div>
+    <div class="categories-grid">
+      <a href="category.html#cat=ml" class="cat-card" data-cat="ml">
+        <div class="cat-icon-wrap">
+          <svg viewBox="0 0 48 48" fill="none" class="cat-icon">
+            <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="2" />
+            <path d="M16 24 L24 16 L32 24 L24 32 Z" stroke="currentColor" stroke-width="2" fill="none" />
+            <circle cx="24" cy="24" r="3" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="cat-content">
+          <span class="cat-tag">ML</span>
+          <h3 class="cat-title">Machine Learning</h3>
+          <p class="cat-desc">Algorithms, statistics, supervised & unsupervised learning, model evaluation and more.</p>
+        </div>
+        <div class="cat-arrow">→</div>
+        <div class="cat-glow"></div>
+      </a>
+
+      <a href="category.html#cat=dl" class="cat-card" data-cat="dl">
+        <div class="cat-icon-wrap">
+          <svg viewBox="0 0 48 48" fill="none" class="cat-icon">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+            <circle cx="36" cy="12" r="4" stroke="currentColor" stroke-width="2" />
+            <circle cx="12" cy="36" r="4" stroke="currentColor" stroke-width="2" />
+            <circle cx="36" cy="36" r="4" stroke="currentColor" stroke-width="2" />
+            <circle cx="24" cy="24" r="5" stroke="currentColor" stroke-width="2" />
+            <line x1="16" y1="12" x2="20" y2="22" stroke="currentColor" stroke-width="1.5" />
+            <line x1="32" y1="12" x2="28" y2="22" stroke="currentColor" stroke-width="1.5" />
+            <line x1="16" y1="36" x2="20" y2="26" stroke="currentColor" stroke-width="1.5" />
+            <line x1="32" y1="36" x2="28" y2="26" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+        </div>
+        <div class="cat-content">
+          <span class="cat-tag">DL</span>
+          <h3 class="cat-title">Deep Learning</h3>
+          <p class="cat-desc">Neural networks, CNNs, RNNs, transformers, backpropagation, and architecture deep dives.
+          </p>
+        </div>
+        <div class="cat-arrow">→</div>
+        <div class="cat-glow"></div>
+      </a>
+
+      <a href="category.html#cat=nlp" class="cat-card" data-cat="nlp">
+        <div class="cat-icon-wrap">
+          <svg viewBox="0 0 48 48" fill="none" class="cat-icon">
+            <rect x="8" y="14" width="32" height="5" rx="2.5" stroke="currentColor" stroke-width="2" />
+            <rect x="8" y="24" width="24" height="5" rx="2.5" stroke="currentColor" stroke-width="2" />
+            <rect x="8" y="34" width="16" height="5" rx="2.5" stroke="currentColor" stroke-width="2" />
+          </svg>
+        </div>
+        <div class="cat-content">
+          <span class="cat-tag">NLP</span>
+          <h3 class="cat-title">Natural Language Processing</h3>
+          <p class="cat-desc">Tokenization, embeddings, LLMs, BERT, GPT, sentiment analysis and text generation.</p>
+        </div>
+        <div class="cat-arrow">→</div>
+        <div class="cat-glow"></div>
+      </a>
+
+      <a href="category.html#cat=cv" class="cat-card" data-cat="cv">
+        <div class="cat-icon-wrap">
+          <svg viewBox="0 0 48 48" fill="none" class="cat-icon">
+            <circle cx="24" cy="24" r="10" stroke="currentColor" stroke-width="2" />
+            <circle cx="24" cy="24" r="4" fill="currentColor" />
+            <path d="M24 8 L24 14 M24 34 L24 40 M8 24 L14 24 M34 24 L40 24" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="cat-content">
+          <span class="cat-tag">CV</span>
+          <h3 class="cat-title">Computer Vision</h3>
+          <p class="cat-desc">Image classification, object detection, segmentation, GANs, YOLO, and vision transformers.
+          </p>
+        </div>
+        <div class="cat-arrow">→</div>
+        <div class="cat-glow"></div>
+      </a>
+
+      <a href="category.html#cat=genai" class="cat-card" data-cat="genai">
+        <div class="cat-icon-wrap">
+          <svg viewBox="0 0 48 48" fill="none" class="cat-icon">
+            <path d="M24 6 L30 18 L44 18 L33 26 L37 40 L24 32 L11 40 L15 26 L4 18 L18 18 Z" stroke="currentColor"
+              stroke-width="2" fill="none" />
+          </svg>
+        </div>
+        <div class="cat-content">
+          <span class="cat-tag">Gen AI</span>
+          <h3 class="cat-title">Generative AI</h3>
+          <p class="cat-desc">Diffusion models, LLMs, prompt engineering, RAG, agents, and creative AI applications.</p>
+        </div>
+        <div class="cat-arrow">→</div>
+        <div class="cat-glow"></div>
+      </a>
+
+      <a href="category.html#cat=statistics" class="cat-card" data-cat="statistics">
+        <div class="cat-icon-wrap">
+          <svg viewBox="0 0 48 48" fill="none" class="cat-icon">
+            <rect x="6" y="28" width="8" height="14" rx="1" stroke="currentColor" stroke-width="2" />
+            <rect x="20" y="18" width="8" height="24" rx="1" stroke="currentColor" stroke-width="2" />
+            <rect x="34" y="8" width="8" height="34" rx="1" stroke="currentColor" stroke-width="2" />
+            <line x1="4" y1="42" x2="44" y2="42" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <div class="cat-content">
+          <span class="cat-tag">Stats</span>
+          <h3 class="cat-title">Statistics for AI</h3>
+          <p class="cat-desc">Probability, statistical tests, distributions, hypothesis testing, and the math behind ML.
+          </p>
+        </div>
+        <div class="cat-arrow">→</div>
+        <div class="cat-glow"></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Recent Posts Section -->
+  <section class="recent-section">
+    <div class="section-header">
+      <span class="section-tag">Recent</span>
+      <h2 class="section-title">Latest Articles</h2>
+    </div>
+    <div class="recent-grid" id="recentPosts">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading posts…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span class="logo-icon">◈</span>
+        <span class="logo-text">Blog<span class="logo-accent">Board</span></span>
+      </div>
+      <p class="footer-sub">Built for those who learn, think, and build.</p>
+      <div class="footer-cats">
+        <a href="category.html#cat=ml">ML</a>
+        <a href="category.html#cat=dl">DL</a>
+        <a href="category.html#cat=nlp">NLP</a>
+        <a href="category.html#cat=cv">CV</a>
+        <a href="category.html#cat=genai">Gen AI</a>
+        <a href="category.html#cat=ainews">AI News</a>
+        <a href="category.html#cat=statistics">Stats</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://linkedin.com/in/hemakalyan" target="_blank" rel="noopener" aria-label="LinkedIn"
+          class="social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+          </svg>
+        </a>
+        <a href="https://github.com/KalyanM45" target="_blank" rel="noopener" aria-label="GitHub" class="social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+          </svg>
+        </a>
+        <a href="https://medium.com/@kalyan45" target="_blank" rel="noopener" aria-label="Medium" class="social-link">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+            <path
+              d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+          </svg>
+        </a>
+      </div>
+      <p class="footer-copy">© 2026 BlogBoard. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/blogs-data.js"></script>
+  <script src="js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "blogs/ml/machine-learning-explained.md",
+    "category": "ml",
+    "title": "Machine Learning Explained",
+    "description": "Discover the basics of machine learning and its applications, learn how to get started",
+    "date": "2026-03-02",
+    "tags": [
+      "machine-learning",
+      "artificial-intelligence",
+      "deep-learning",
+      "natural-language-processing",
+      "data-science"
+    ],
+    "readTime": "6 min",
+    "file": "blogs/ml/machine-learning-explained.md"
+  }
+]

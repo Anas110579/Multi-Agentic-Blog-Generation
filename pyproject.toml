@@ -1,0 +1,41 @@
+[project]
+name = "multi-agentic-blog-generation"
+version = "0.1.0"
+description = "Automated AI and machine-learning article generation and publishing"
+readme = "README.md"
+authors = [
+    { name = "Anas110579", email = "siddiquianasmohd4@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "boto3>=1.42.65",
+    "fastapi>=0.135.1",
+    "langchain-core>=1.2.16",
+    "langchain-groq>=1.1.2",
+    "langgraph>=1.0.10",
+    "openpyxl>=3.1.5",
+    "opik>=2.2.96",
+    "pandas>=3.0.1",
+    "pydantic-settings>=2.13.1",
+    "python-dotenv>=1.2.1",
+    "requests>=2.32.0",
+    "sentry-sdk>=2.0.0",
+    "uvicorn>=0.41.0",
+]
+
+[project.scripts]
+multi-agentic-blog-generation = "blogboard.run:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "blogboard"
+module-root = "."
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.2.0",
+    "pytest>=8.0.0",
+]

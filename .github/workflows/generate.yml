@@ -1,0 +1,52 @@
+name: Generate and publish article
+
+on:
+  schedule:
+    - cron: "30 2 * * *"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Target date in YYYY-MM-DD (IST); defaults to today"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: blogboard-publishing
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      LLM__GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      R2__ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2__ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2__SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      R2__BUCKET_NAME: ${{ secrets.R2_BUCKET_NAME }}
+      CONTENT__TAVILY_API_KEY: ${{ secrets.TAVILY_API_KEY }}
+      CONTENT__GUARDIAN_API_KEY: ${{ secrets.GUARDIAN_API_KEY }}
+      TARGET_DATE: ${{ inputs.date }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install project
+        run: uv sync --locked --no-dev
+
+      - name: Generate and publish
+        shell: bash
+        run: |
+          if [[ -n "$TARGET_DATE" ]]; then
+            uv run --no-sync multi-agentic-blog-generation --date "$TARGET_DATE" --scheduled
+          else
+            uv run --no-sync multi-agentic-blog-generation --scheduled
+          fi
